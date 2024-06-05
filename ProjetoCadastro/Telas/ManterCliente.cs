@@ -1,4 +1,6 @@
-﻿using Biblioteca.Model;
+﻿using Biblioteca.Arquivo;
+using Biblioteca.Model;
+using ProjetoCadastro.Conversores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,13 +42,12 @@ namespace ProjetoCadastro.Telas {
             Console.WriteLine("Endereco: ");
             cliente.Endereco = Console.ReadLine();
 
-            SalvarCliente(cliente);
+            //Converte o Cliente em texto e depois manda grava o arquivo
+            GerenciadorArquivo.GravarArquivo("cliente", ClienteTexto.ConverterParaTexto(cliente));
 
         }
 
         public void ListarClientes() { }
-        public void SalvarCliente(Cliente cliente) { }
-
 
     }
 }
